@@ -1,17 +1,16 @@
 :root {
   color-scheme: dark;
-  --bg: #0b0c11;
-  --panel: #12131a;
-  --panel-raised: #181922;
-  --line: #262732;
-  --line-strong: #363846;
-  --ink: #f5f3ef;
-  --ink-2: #b9bac6;
-  --ink-3: #9092a1;
-  --accent: #35c4c8;
-  --accent-bright: #35c4c8;
-  --accent-soft: rgba(53, 196, 200, 0.16);
-  --on-accent: #0b0c11; /* White on this aqua is too faint to read, so text on it is dark. */
+  --bg: #080c0e;
+  --panel: #0e1217;
+  --line: #282e34;
+  --line-strong: #5a6268;
+  --ink: #f5f6f6;
+  --ink-2: #b4b9bd;
+  --ink-3: #8f959a;
+  /* Sampled from the home page mockup. Change it here and in logo.svg to change it everywhere. */
+  --accent: #5ae7e0;
+  --accent-glow: rgba(90, 231, 224, 0.45);
+  --on-accent: #06100f; /* White on this aqua is too faint to read, so text on it is dark. */
   --radius: 14px;
   font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", "Segoe UI", Roboto, sans-serif;
 }
@@ -19,25 +18,26 @@
 * { box-sizing: border-box; }
 html { -webkit-text-size-adjust: 100%; }
 body { margin: 0; min-height: 100vh; display: flex; flex-direction: column; background: var(--bg); color: var(--ink); font-size: 16px; line-height: 1.6; }
-a { color: var(--accent-bright); }
+a { color: var(--accent); }
 a:hover { color: var(--ink); }
-:focus-visible { outline: 2px solid var(--accent-bright); outline-offset: 2px; border-radius: 4px; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
 
-.wrap { width: min(760px, 100%); margin: 0 auto; padding: 0 24px; }
+.wrap { width: min(1008px, 100%); margin: 0 auto; padding: 0 24px; }
 
 .site-header { border-bottom: 1px solid var(--line); }
 .site-header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-top: 18px; padding-bottom: 18px; }
-.brand { display: flex; align-items: center; gap: 12px; color: var(--ink); text-decoration: none; }
+.brand { display: flex; align-items: center; gap: 16px; color: var(--ink); text-decoration: none; }
 .brand:hover { color: var(--ink); }
 .brand img { display: block; }
-.brand span { font-size: 16px; font-weight: 500; letter-spacing: 0.34em; }
-.site-nav a { color: var(--ink-2); text-decoration: none; font-size: 15px; }
+.brand-text { display: flex; flex-direction: column; gap: 3px; }
+.brand-name { font-size: 18px; line-height: 1.1; font-weight: 500; letter-spacing: 0.36em; }
+.brand-sub { font-size: 10px; line-height: 1.2; letter-spacing: 0.3em; color: var(--ink-2); white-space: nowrap; }
+.site-nav a { color: var(--ink-2); text-decoration: none; font-size: 16px; }
 .site-nav a:hover { color: var(--ink); }
 
-main { flex: 1; padding: 44px 0 56px; }
-.eyebrow { margin: 0; font-size: 12px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--ink-2); }
-h1 { margin: 8px 0 12px; font-size: clamp(34px, 7vw, 52px); line-height: 1.08; font-weight: 700; letter-spacing: -0.025em; }
-h1 em { font-style: normal; color: var(--accent-bright); }
+main { flex: 1; padding: 56px 0 64px; }
+.eyebrow { margin: 0; font-size: 13px; font-weight: 500; letter-spacing: 0.3em; text-transform: uppercase; color: var(--accent); }
+h1 { margin: 12px 0 14px; font-size: clamp(38px, 7vw, 56px); line-height: 1.08; font-weight: 700; letter-spacing: -0.025em; }
 .lead { margin: 0; font-size: 18px; color: var(--ink-2); }
 .updated { margin: 0; color: var(--ink-3); font-size: 14px; }
 
@@ -50,19 +50,35 @@ h1 em { font-style: normal; color: var(--accent-bright); }
 .panel li + li { margin-top: 6px; }
 .panel strong { color: var(--ink); font-weight: 600; }
 
-.button { display: inline-block; margin-top: 24px; padding: 13px 24px; border-radius: 12px; font-weight: 600; color: var(--on-accent); text-decoration: none; background: var(--accent); box-shadow: 0 8px 26px rgba(53, 196, 200, 0.2); }
-.button:hover { color: var(--on-accent); filter: brightness(1.1); }
+/* Home page */
+.home .lead { font-size: clamp(18px, 2.2vw, 22px); }
+.home .panel { padding: 32px; }
+.home .panel p { font-size: 18px; }
+.home-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 24px; margin-top: 32px; }
+.enter-button, .outline-button { display: inline-flex; align-items: center; justify-content: center; gap: 14px; min-height: 64px; padding: 0 34px; border-radius: 12px; font-size: 18px; text-decoration: none; }
+.enter-button { font-weight: 600; color: var(--on-accent); background: var(--accent); box-shadow: 0 0 0 1px var(--accent), 0 0 18px var(--accent-glow), 0 0 44px var(--accent-glow); transition: box-shadow 0.15s; }
+.enter-button:hover { color: var(--on-accent); box-shadow: 0 0 0 1px var(--accent), 0 0 24px var(--accent-glow), 0 0 64px var(--accent-glow); }
+.outline-button { color: var(--ink); border: 1px solid var(--line-strong); }
+.outline-button:hover { color: var(--ink); border-color: var(--ink); }
 
 .site-footer { border-top: 1px solid var(--line); color: var(--ink-3); font-size: 14px; }
 .site-footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px 20px; padding-top: 18px; padding-bottom: 18px; }
 .site-footer a { color: var(--ink-2); }
 
 @media (max-width: 560px) {
-  main { padding: 30px 0 40px; }
-  .panel { padding: 20px; }
-  .brand span { font-size: 14px; letter-spacing: 0.26em; }
+  main { padding: 32px 0 40px; }
+  .panel, .home .panel { padding: 20px; }
+  .home .panel p { font-size: 16px; }
+  .brand { gap: 12px; }
+  .brand img { width: 36px; height: 36px; }
+  .brand-name { font-size: 15px; letter-spacing: 0.3em; }
+  .brand-sub { font-size: 8px; letter-spacing: 0.3em; }
+  .site-nav a { font-size: 15px; }
+  .home-actions { flex-direction: column; align-items: stretch; gap: 16px; }
 }
 
-/* The same aquamarine as the dashboard. White on it is too faint to read, so its text is dark. */
-.enter-button { display: block; margin-top: 40px; padding: 24px; border-radius: 14px; font-size: 22px; font-weight: 600; text-align: center; text-decoration: none; color: var(--on-accent); background: var(--accent); box-shadow: 0 10px 30px rgba(53, 196, 200, 0.25); }
-.enter-button:hover { color: var(--on-accent); filter: brightness(1.1); }
+@media (prefers-reduced-motion: reduce) {
+  .enter-button { transition: none; }
+}
+.home .panel p a { text-decoration: none; }
+.home .panel p a:hover { text-decoration: underline; color: var(--accent); }
