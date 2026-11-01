@@ -8,9 +8,10 @@
   --ink: #f5f3ef;
   --ink-2: #b9bac6;
   --ink-3: #9092a1;
-  --accent: #7c4dff;
-  --accent-bright: #a689ff;
-  --accent-soft: rgba(124, 77, 255, 0.16);
+  --accent: #35c4c8;
+  --accent-bright: #35c4c8;
+  --accent-soft: rgba(53, 196, 200, 0.16);
+  --on-accent: #0b0c11; /* White on this aqua is too faint to read, so text on it is dark. */
   --radius: 14px;
   font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", "Segoe UI", Roboto, sans-serif;
 }
@@ -49,8 +50,8 @@ h1 em { font-style: normal; color: var(--accent-bright); }
 .panel li + li { margin-top: 6px; }
 .panel strong { color: var(--ink); font-weight: 600; }
 
-.button { display: inline-block; margin-top: 24px; padding: 13px 24px; border-radius: 12px; font-weight: 600; color: #fff; text-decoration: none; background: linear-gradient(120deg, #6b3df0, #8257ff); box-shadow: 0 8px 26px rgba(124, 77, 255, 0.28); }
-.button:hover { color: #fff; filter: brightness(1.1); }
+.button { display: inline-block; margin-top: 24px; padding: 13px 24px; border-radius: 12px; font-weight: 600; color: var(--on-accent); text-decoration: none; background: var(--accent); box-shadow: 0 8px 26px rgba(53, 196, 200, 0.2); }
+.button:hover { color: var(--on-accent); filter: brightness(1.1); }
 
 .site-footer { border-top: 1px solid var(--line); color: var(--ink-3); font-size: 14px; }
 .site-footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px 20px; padding-top: 18px; padding-bottom: 18px; }
@@ -61,3 +62,7 @@ h1 em { font-style: normal; color: var(--accent-bright); }
   .panel { padding: 20px; }
   .brand span { font-size: 14px; letter-spacing: 0.26em; }
 }
+
+/* The same aquamarine as the dashboard. White on it is too faint to read, so its text is dark. */
+.enter-button { display: block; margin-top: 40px; padding: 24px; border-radius: 14px; font-size: 22px; font-weight: 600; text-align: center; text-decoration: none; color: var(--on-accent); background: var(--accent); box-shadow: 0 10px 30px rgba(53, 196, 200, 0.25); }
+.enter-button:hover { color: var(--on-accent); filter: brightness(1.1); }

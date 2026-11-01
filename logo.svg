@@ -1,13 +1,13 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Unreel">
   <defs>
     <linearGradient id="left" x1="0" y1="0" x2="0.9" y2="1">
-      <stop offset="0" stop-color="#f1eaff"/>
-      <stop offset="0.6" stop-color="#b79bff"/>
-      <stop offset="1" stop-color="#8b5cf6"/>
+      <stop offset="0" stop-color="#e7f5f5"/>
+      <stop offset="0.6" stop-color="#35c4c8"/>
+      <stop offset="1" stop-color="#35c4c8"/>
     </linearGradient>
     <linearGradient id="right" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#a884ff"/>
-      <stop offset="1" stop-color="#5b2fd6"/>
+      <stop offset="0" stop-color="#35c4c8"/>
+      <stop offset="1" stop-color="#137e81"/>
     </linearGradient>
   </defs>
   <path fill="url(#left)" d="M7 12 21 20V38C21 46 26 50 33 50V62C18 62 7 52 7 38Z"/>
